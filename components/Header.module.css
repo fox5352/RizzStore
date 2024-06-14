@@ -1,0 +1,163 @@
+.header {
+    width: 100%;
+
+    background: transparent;
+}
+
+.container {
+    width: 100%;
+    max-width: 1024px;
+    
+    margin: 0 auto;
+    
+    position: relative;
+}
+
+.body {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0px 0.375rem;
+
+    color: var(--bg-color);
+
+    border-radius: 0 0 6px 6px;
+    background-color: var(--ac-three);
+}
+
+.heading {
+    display: flex;
+
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+    color: var(--bg-color);
+    font-family: var(--font);
+}
+
+/* mobile navbar */
+.navContainer {
+    position: relative;
+
+    margin: 5px;
+}
+
+.navBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 26px;
+
+    position: relative;
+}
+
+.hamburger {
+    display: block;
+
+    width: 86%;
+    height: 3px;
+
+    border-radius: 3px;
+    background-color: var(--ac-two);
+    transition: all  250ms ease-in-out;
+    position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    border-radius: 1em;
+    background-color: var(--ac-two);
+
+    transition: all  250ms ease-in-out;
+}
+.hamburger::before {
+    top: -6px;
+}
+.hamburger::after {
+    top: 6px;
+}
+
+/* -------- hamburger button active -------- */
+
+.navBtn_active .hamburger {
+    background: transparent !important;
+}
+.navBtn_active .hamburger::before {
+    top: 0px;
+    transform: rotate(45deg);
+}
+.navBtn_active .hamburger::after {
+    top: 0px;
+    transform: rotate(-45deg);
+}
+
+.mobile_nav {
+    position: absolute;
+    top: -50;
+    right: -50%;
+    scale: 0;
+    z-index: 50;
+
+    display: flex !important;
+    flex-direction: column;
+
+    padding: 0px 5px;
+
+    border-radius: 0 0 6px 6px;
+    transition: all  250ms ease-in-out;
+}
+
+.mobile_nav_active {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    scale: 100%;
+
+
+    background-color: var(--ac-three);
+
+}
+
+.mobile_nav_link {
+
+    margin-top: 0.125rem;
+    padding: 0rem 0.25rem;
+
+    border-radius: 4px;
+
+    transition: all 350ms ease-in-out;
+}
+.mobile_nav_link:nth-last-child(1) {
+    margin-bottom: 0.125rem;
+}
+.mobile_nav_link:hover {
+    background-color: var(--ac-two);
+}
+
+/* login button */
+.loginBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 26px;
+    
+    transition: all 350ms ease-in-out;
+}
+.loginBtn:hover {
+    color: var(--ac-two);
+}
