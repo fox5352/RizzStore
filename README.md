@@ -7,7 +7,7 @@
 Run the dev server:
 
 ```shellscript
-npm run dev
+npm run gyat
 ```
 
 ## Deployment
