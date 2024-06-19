@@ -7,7 +7,7 @@
     
     --bg-color: #EEEEEE;
 
-    --ac-one: #76ABAE;
+    --ac-one: #7ac6ca;
     --ac-two: #FC6736;
     --ac-three: #0C2D57;
 }
@@ -32,4 +32,32 @@ body {
 
 .char-flip {
     position: relative;
+}
+
+/* animations */
+
+
+.down-rotate {
+    animation: down-rotate 900ms forwards linear;
+}
+.down-flip {
+    animation: down-flip 900ms forwards linear;
+}
+
+@keyframes down-rotate {
+    from {
+        transform: translate(-50%, -50%) rotateY(0deg) skew(0deg);
+    }
+    to {
+        transform: translate(-50%, 350%) rotateY(260deg) skew(20deg);
+    }
+}
+
+@keyframes down-flip {
+    from {
+        transform: translate(-50%, -50%) rotateX(0deg) skew(0deg);
+    }
+    to {
+        transform: translate(-50%, 350%) rotateX(-160deg) skew(-20deg);
+    }
 }

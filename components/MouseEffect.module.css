@@ -1,0 +1,21 @@
+.body {
+    display: inherit;
+    width: inherit;
+    height: inherit;
+}
+
+.dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: translate(-50%, -50%);
+
+    /* width: 5px;
+    height: 5px; */
+
+    /* border-radius: 50%; */
+    /* background-color: black; */
+
+    /* animation: leaf 1000ms linear; */
+}
