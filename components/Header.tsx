@@ -1,6 +1,6 @@
 "use client"
 
-import { Link } from "@remix-run/react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { animate, stagger, timeline } from "motion";
@@ -64,7 +64,7 @@ export default function Header({auth}: {auth: boolean}) {
 
                 <div className={styles.body}>
 
-                    <Link className={styles.heading} to="/" onClick={flipHeading}>
+                    <Link className={styles.heading} href="/" onClick={flipHeading}>
                         {heading.map(char => <div key={char} className="char-flip">{char}</div>)}
                     </Link>
                     
@@ -78,8 +78,8 @@ export default function Header({auth}: {auth: boolean}) {
                             </button>
 
                             <nav className={`${styles.mobile_nav} ${displayMenu && styles.mobile_nav_active}`}>
-                                <Link className={styles.mobile_nav_link} to="/cart">Cart</Link>
-                                <Link className={styles.mobile_nav_link} to="/account">Profile</Link>
+                                <Link className={styles.mobile_nav_link} href="/cart">Cart</Link>
+                                <Link className={styles.mobile_nav_link} href="/account">Profile</Link>
                             </nav>
 
                         </div>
@@ -88,11 +88,11 @@ export default function Header({auth}: {auth: boolean}) {
                             <button className={styles.desk_nav_link} title="logout">
                                 <i className="bi bi-door-closed-fill"></i>
                             </button>
-                            <Link className={styles.desk_nav_link} to="/cart">
+                            <Link className={styles.desk_nav_link} href="/cart">
                                 <i className="bi bi-cart-fill"></i>
                                 Cart
                             </Link>
-                            <Link className={styles.desk_nav_link} to="/account">
+                            <Link className={styles.desk_nav_link} href="/account">
                                 <i className="bi bi-person-circle"></i>
                                 Profile
                             </Link>
