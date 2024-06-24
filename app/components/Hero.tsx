@@ -2,9 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { animate, stagger, timeline } from "motion";
-
 import Image from "next/image";
-
 import styles from "./Hero.module.css"
 
 export default function Hero() {
@@ -18,60 +16,53 @@ export default function Hero() {
   ]
 
   const [ currentFocusedIndex, setCurrentFocusedIndex ] = useState<number>(slides.length - 1);
-  const [textDescription, setTextDescription] = useState<string>("");
-  const [textTitle, setTextTitle] = useState<string>("");
+  const [textDescription, setTextDescription] = useState<string>(slides[slides.length - 1].description);
+  const [textTitle, setTextTitle] = useState<string>(slides[slides.length - 1].title);
   
-  // updates the currentFocusedIndex when a button is clicked
-  const setFocusIndex = (index: number) => {
+  // sets the currentFocusedIndex and the text to the new index
+  const setFocusIndex = useCallback((index: number) => {
     setCurrentFocusedIndex(index);
-  }
-  
-  // updates the textBox when currentFocusedIndex changes
-  const setNewTextData = useCallback(()=>{
-    setTextTitle(slides[currentFocusedIndex].title);
-    setTextDescription(slides[currentFocusedIndex].description);
-  }, [currentFocusedIndex])
+    setTextTitle(slides[index].title);
+    setTextDescription(slides[index].description);
+  }, [slides]);
 
-  useEffect(()=>{
-    setNewTextData();  
-  }, [currentFocusedIndex]);
-
-  // Animate the text box fading in when it changes
+  // animate the text on every update
   useEffect(() => {
-    timeline([
-      ['.hero-textBox-title', { opacity: [0, 1] }, { duration: 0.5 }],
-      ['.hero-textBox-description', { opacity: [0, 1] }, { duration: 0.5, at: '-0.45' }]
-    ]);
+    const animateText = () => {
+      timeline([
+        ['.hero-textBox-title', { opacity: [0, 1] }, { duration: 0.3 }],
+        ['.hero-textBox-description', { opacity: [0, 1] }, { duration: 0.3, at: '-0.2' }]
+      ]);
+    };
+
+    
+    animateText();
   }, [textTitle, textDescription]);
 
-  // animate the buttons on initial load
-  useEffect(()=> {
-    animate(`.${styles.btn}`, { opacity: [0, 1], transform: ["translateX(-200px)", "translateX(0px)"] }, { delay:stagger(0.3), duration: 1})
-  }, [])
+  // animate the buttons on on page initial load
+  useEffect(() => {
+    const animateButtons = () => {
+      animate(`.${styles.btn}`, { opacity: [0, 1], transform: ["translateX(-100px)", "translateX(0px)"] }, { delay: stagger(0.2), duration: 0.5 });
+    };
+
+    animateButtons();
+  }, []);
 
   return (
     <section className={styles.body}>
-      {/* TODO:container */}
       <div className={styles.container}>
-        {/* TODO: top/left side */}
         <div className={`${styles.box} ${styles.imgBox}`}>
-
-          {
-            slides && slides.map((slide, index) => (
-              <div className={`test ${styles.imageContainer} ${currentFocusedIndex < index ? styles.hide : ""}`} key={slide.id}>
-                <Image className={styles.image} src={slide.image.src} width={350} height={350} alt={slide.image.alt} />
-              </div>
-            ))
-          }
-
+          {slides.map((slide, index) => (
+            <div className={`${styles.imageContainer} ${currentFocusedIndex < index ? styles.hide : ""}`} key={slide.id}>
+              <Image className={styles.image} src={slide.image.src} width={350} height={350} alt={slide.image.alt} loading="lazy" />
+            </div>
+          ))}
         </div>
 
-        {/* TODO: bottom/right side */}
         <div className={`${styles.box} ${styles.textBox}`}>
           <h3 className={`${styles.title} hero-textBox-title`}>{textTitle}</h3>
           <p className={`${styles.description} hero-textBox-description`}>{textDescription}</p>
         </div>
-
       </div>
       <div className={styles.controls}>
         {slides.map((slide, index) => (
