@@ -9,7 +9,7 @@ export default function Hero() {
   const slides = [
     { id: 1, title: "having a good time", description: "entertaining your friends with your new found Rizz",
       image: { src:"/hero/barr.webp", alt: "a bar with people having a good time"} },
-    { id: 2, title: "touching grass", description: "enjoying the park with your time in a park but with Rizz",
+    { id: 2, title: "touching grass", description: "enjoying your time in a park but with Rizz",
       image: { src:"/hero/park.webp", alt: "a park view "} },
     { id: 3, title: "giving a presentation", description: "giving a presentation with your new found Rizz",
       image: { src:"/hero/office.webp", alt: "a person giving a killer presentation"} }
