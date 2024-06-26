@@ -4,12 +4,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { animate, stagger, timeline } from "motion";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 import styles from "./Header.module.css"
 
 
-export default function Header({auth}: {auth: boolean}) {
+export default function Header() {
     const [ displayMenu, setDisplayMenu ] = useState<boolean>(false);
+    const { data: auth } = useSession();
 
     const heading = "RizzStore".split('');
 
@@ -100,7 +102,7 @@ export default function Header({auth}: {auth: boolean}) {
                         </>
                     ):(
                         // TODO: login button
-                        <button className={styles.loginBtn} title="login button">
+                        <button className={styles.loginBtn} title="login button" onClick={() => signIn()}>
                             <i className="bi bi-door-open-fill"></i>
                         </button>
                     )}
