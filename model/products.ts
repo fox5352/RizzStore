@@ -1,9 +1,10 @@
 import supabase from "./db";
 
-interface Product {
+export interface Product {
     id: number;
     title: string;
     price: number;
+    rating: number;
     detail: string;
     in_stock: boolean;
     best_seller: boolean;

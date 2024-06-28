@@ -3,14 +3,14 @@ import Link from "next/link";
 
 import styles from "./Card.module.css"
 import Image from "next/image";
-import { TouchEvent, useEffect } from "react";
+import { MouseEvent } from "react";
 
 export default function Card({
     id, title, detail, rating, price, in_stock, best_seller, image_url}: {
     id:string, title: string, detail: string, rating:number, price:number, in_stock:boolean, best_seller: boolean, image_url:string}) {
 
 
-    const addToCart = (e:TouchEvent) =>{
+    const addToCart = (e: MouseEvent) =>{
         e.preventDefault();
         e.stopPropagation();
     }
