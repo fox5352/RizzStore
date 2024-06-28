@@ -28,8 +28,6 @@ body {
     font-style: normal;
 
     background-color: var(--bg-color);
-
-    overflow: hidden;
 }
 
 a {

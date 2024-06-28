@@ -57,15 +57,14 @@ export async function getProductsByTitle(title: string, page: number, limit: num
 }
 
 export async function getFeaturedProducts(): Promise<Product[] | null> {
-    const { data, error } = await supabase.from("products").select("*").eq("best_seller", true);
+    const { data, error } = await supabase.from("products").select("*").eq("best_seller", true).limit(3);
+    
     if (error) {
         console.error(error);
         return null;
     }
 
-    const max = 3;
+    const randomThree = data.sort(() => Math.random() - 0.5).slice(0, 3);
 
-    const random = data.sort(() => Math.random() - 0.5).slice(0, max);
-
-    return random;
+    return randomThree;
 }
