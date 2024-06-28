@@ -151,14 +151,17 @@
 
 .mobile_nav_link {
     margin-top: 0.125rem;
-    padding: 0rem 0.25rem;
+    min-height: 26px;
+    padding: 2px 0.25rem;
 
     letter-spacing: 0.5px;
-
-    border-radius: 4px;
-
     color: var(--bg-color);
-    text-decoration: none;
+    text-align: left;
+    text-decoration: none;    
+    
+    border: 0;
+    border-radius: 4px;
+    background-color: inherit;
 
     transition: all 350ms ease-in-out;
 }

@@ -82,12 +82,13 @@ export default function Header() {
                             <nav className={`${styles.mobile_nav} ${displayMenu && styles.mobile_nav_active}`}>
                                 <Link className={styles.mobile_nav_link} href="/cart">Cart</Link>
                                 <Link className={styles.mobile_nav_link} href="/account">Profile</Link>
+                                <button className={styles.mobile_nav_link} onClick={() => signOut()}>Log-Out</button>
                             </nav>
 
                         </div>
 
                         <nav className={styles.desk_nav}>
-                            <button className={styles.desk_nav_link} title="logout">
+                            <button className={styles.desk_nav_link} title="logout" onClick={() => signOut()}>
                                 <i className="bi bi-door-closed-fill"></i>
                             </button>
                             <Link className={styles.desk_nav_link} href="/cart">
