@@ -42,11 +42,7 @@
     position: absolute;
     top: 0;
     left: -6px;
-
     border-radius: 14px;
-
-    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.3);
-
     
     overflow: hidden;
 }
@@ -103,20 +99,6 @@
         opacity: 0;
         transform: scale(0.8) translate(150px) rotate(0deg);
     }
-}
-
-.imageContainer::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: auto;
-
-    aspect-ratio: 1 / 1;
-
-    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .image {
@@ -198,8 +180,8 @@
 }
 
 .btnActive {
-    border-color: var(--ac-one);
-    background-color: var(--ac-one);
+    border-color: var(--ac-three);
+    background-color: var(--ac-three);
 }
 
 @media screen and (min-width: 640px) {

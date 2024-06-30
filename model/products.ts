@@ -5,7 +5,7 @@ export interface Product {
     title: string;
     price: number;
     rating: number;
-    detail: string;
+    details: string;
     in_stock: boolean;
     best_seller: boolean;
     image_url: string;

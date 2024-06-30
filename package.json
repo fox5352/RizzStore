@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "gyat": "npx next dev -H 0.0.0.0",
+    "skibidi": "npx next start -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

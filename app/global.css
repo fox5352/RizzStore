@@ -4,12 +4,16 @@
     --font: "Space Mono", monospace;
 
     --fg-color: #222831;
+    --fg-two: #dcdcdc;
     
-    --bg-color: #EEEEEE;
+    --bg-color: #dcdcdc;
+    --bg-two: #222831;
 
     --ac-one: #7ac6ca;
     --ac-two: #FC6736;
     --ac-three: #0C2D57;
+
+    --sd-sm: 0px 4px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
 

@@ -33,7 +33,7 @@
 
     padding: 0px 0.375rem;
     
-    color: var(--bg-color);
+    color: var(--fg-two);
 
     border-radius: 0 0 0 6px;
     background-color: var(--ac-three);
@@ -45,7 +45,7 @@
     font-size: 1.5rem;
     letter-spacing: -1px;
     text-decoration: none;
-    color: var(--bg-color);
+    color: var(--fg-two);
     font-family: var(--font);
 }
 
@@ -146,7 +146,6 @@
 
 
     background-color: var(--ac-three);
-
 }
 
 .mobile_nav_link {
@@ -155,7 +154,7 @@
     padding: 2px 0.25rem;
 
     letter-spacing: 0.5px;
-    color: var(--bg-color);
+    color: var(--fg-two);
     text-align: left;
     text-decoration: none;    
     
@@ -181,7 +180,7 @@
     width: 32px;
     height: 26px;
     
-    color: var(--bg-color);
+    color: var(--fg-two);
 
     border: 0;
     background-color: inherit;
@@ -221,7 +220,8 @@
 
     border: 0;
     border-radius: 3px;
-    background-color: var(--ac-one);
+    background-color: var(--ac-two);
+    /* background-color: var(--ac-one); */
     
     transition: all 350ms ease-in-out;
 
@@ -251,8 +251,9 @@
 
 .desk_nav_link:hover {
     color: var(--ac-two);
-    /* border-radius: 0; */
     background-color: transparent;
+
+    transform: scale(1.05);
 }
 .desk_nav_link:hover::after,
 .desk_nav_link:hover::before {
