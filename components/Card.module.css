@@ -107,7 +107,8 @@
     background-color: limegreen;
 }
 .stock:hover {
-    background-color: lime;
+    scale: 1.1;
+    background-color: #09d609;
 }
 
 
@@ -115,4 +116,4 @@
     .body {
 
     }
-}
+    }

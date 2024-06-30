@@ -3,30 +3,29 @@ import Link from "next/link";
 
 import styles from "./Card.module.css"
 import Image from "next/image";
-import { MouseEvent } from "react";
 
 export default function Card({
     id, title, detail, rating, price, in_stock, best_seller, image_url}: {
     id:string, title: string, detail: string, rating:number, price:number, in_stock:boolean, best_seller: boolean, image_url:string}) {
+ 
+        
+    const addToCart = () => {
+        // TODO: add api call later
+        alert(id);
+    };
 
-
-    const addToCart = (e: MouseEvent) =>{
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    
     return (
-        <Link className={styles.body} href={`/products/${id}`}>
+        <Link key={id} className={styles.body} href={`/products/${id}`}>
 
             <div className={styles.head}>
-                <Image className={styles.image} src={image_url ? image_url : "/hero/park.webp"} alt="" width={500} height={500} />
+                <Image loading="eager" className={styles.image} src={image_url ? image_url : "/hero/park.webp"} alt="" width={500} height={500} />
                 
-                <span className={styles.tag}>best_seller</span>
+                {best_seller && <span className={styles.tag}>best_seller</span>}
             </div>
 
             <div className={styles.content}>
                 <h3 className={styles.contentTitle}>{title}</h3>
-
+ 
                 <p className={styles.contentText}>{detail.slice(0, 45)+"..."}</p>
 
                 <Stars rating={rating} />
@@ -45,9 +44,9 @@ const Stars = ({rating}: {rating:number}) => {
 
     for (let index = 0; index < 5; index++) {
         if (index < rating) {
-            list.push(<i className="bi bi-star-fill"></i>)
+            list.push(<i key={index} className="bi bi-star-fill"></i>)
         }else{
-            list.push(<i className="bi bi-star"></i>)
+            list.push(<i key={index} className="bi bi-star"></i>)
         }
     }
 
