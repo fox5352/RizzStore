@@ -5,7 +5,7 @@ import styles from "./ProductsTitle.module.css"
 import { useEffect } from "react";
 
 export default function ProductsTitle({ title }: { title: string }) {
-    const newTitle = title.split('[A-Za-z]+\s+[A-Za-z0-9]+');
+    const newTitle = title.split("");
 
     useEffect(() => {
         const tag = `.${styles.letter}`
