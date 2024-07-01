@@ -33,7 +33,7 @@
     padding: 2px 4px;
 
     color: lime;
-    
+
     border-radius: 0 0 4px 0;
     background-color: rgba(0, 0, 0, 0.658);
 
@@ -77,7 +77,7 @@
     letter-spacing: -1px;
 }
 .contentPrice span {
-    font-family: fantasy;
+    font-family: monospace;
     font-size: 1.1875rem;
     font-weight: normal;
     letter-spacing: 1px;
@@ -111,9 +111,8 @@
     background-color: #09d609;
 }
 
-
 @media screen and (min-width: 640px) {
     .body {
 
     }
-    }
+}

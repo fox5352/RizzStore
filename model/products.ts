@@ -12,8 +12,8 @@ export interface Product {
 }
 
 
-export async function createProduct(title:string, detail: string, price: number, in_stock: boolean, best_seller: boolean, image_url: string): Promise<Product | null> {
-    const { data, error} = await supabase.from("products").insert({
+export async function createProduct(title: string, detail: string, price: number, in_stock: boolean, best_seller: boolean, image_url: string): Promise<Product | null> {
+    const { data, error } = await supabase.from("products").insert({
         title,
         detail,
         price,
@@ -57,15 +57,25 @@ export async function getProductsByTitle(title: string, page: number, limit: num
     return data;
 }
 
-export async function getFeaturedProducts(): Promise<Product[] | null> {
-    const { data, error } = await supabase.from("products").select("*").eq("best_seller", true).limit(3);
-    
+export async function getLowestPriceProducts(limit: number): Promise<Product[] | null> {
+    const { data, error } = await supabase.from("products").select("*").order("price", { ascending: true }).limit(limit);
+
     if (error) {
         console.error(error);
         return null;
     }
 
-    const randomThree = data.sort(() => Math.random() - 0.5).slice(0, 3);
+    return data;
+}
 
-    return randomThree;
+export async function getFeaturedProducts(): Promise<Product[] | null> {
+    const { data, error } = await supabase.from("products").select("*").eq("best_seller", true).limit(3);
+
+    if (error) {
+        console.error(error);
+        return null;
+    }
+
+
+    return data;
 }
